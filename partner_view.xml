@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+  <data>
+    <!-- Add instructor field to existing view -->
+    <record model="ir.ui.view" id="partner_instructor_form_view">
+      <field name="name">partner.instructor</field>
+      <field name="model">res.partner</field>
+      <field name="inherit_id" ref="base.view_partner_form" />
+      <field name="arch" type="xml">
+        <field name="website" position="after">
+          <field name="denominaciones_id" string="Denominacion" attrs="{'readonly': [('use_parent_address','=',True)],'invisible': [('is_company','=', False)]}" />
+          <field name="dias_horas" string="Dias y horarios de servicios" attrs="{'readonly': [('use_parent_address','=',True)],'invisible': [('is_company','=', False)]}" />
+          <field name="horarios" string="Horarios escuela domincal" attrs="{'readonly': [('use_parent_address','=',True)],'invisible': [('is_company','=', False)]}" />
+          <field name="maestros" string="Cantidad de maestros" attrs="{'readonly': [('use_parent_address','=',True)],'invisible': [('is_company','=', False)]}" />
+          <field name="ninos" string="Cantidad de niños en la Iglesia" attrs="{'readonly': [('use_parent_address','=',True)],'invisible': [('is_company','=', False)]}" />
+          <field name="edades" string="Division de edades" attrs="{'readonly': [('use_parent_address','=',True)],'invisible': [('is_company','=', False)]}" />
+          <field name="especificos" string="Atienden a niños y niñas de que lugares aledaños específicos" attrs="{'readonly': [('use_parent_address','=',True)],'invisible': [('is_company','=', False)]}" />
+
+          <!-- DATOS MAESTRO -->
+          <separator string=" MAESTRO " colspan="4" attrs="{'invisible': [('is_company','=', True)]}" />
+          <field name="departamento" string="Departamento o Clase" attrs="{'invisible': [('is_company','=', True)]}" />
+          <field name="ninos_ma" string="Cantidad de niños del maestro" attrs="{'invisible': [('is_company','=', True)]}" />
+          <field name="edad_ma" string="Edad del maestro" attrs="{'invisible': [('is_company','=', True)]}" />
+          <field name="tiempo_ma" string="Tiempo de ser maestro" attrs="{'invisible': [('is_company','=', True)]}" />
+          <field name="funcion_ma" string="Funcion del maestro de la Escuela Domincal" attrs="{'invisible': [('is_company','=', True)]}" />
+
+          <!-- DATOS ALUMNO -->
+          <separator string=" ALUMNO " colspan="4" attrs="{'invisible': [('is_company','=', True)]}" />
+          <field name="departamento_ni" string="Departamento o clase niño" attrs="{'invisible': [('is_company','=', True)]}" />
+          <field name="fecha_nacimiento" string="Fecha de Nacimiento" attrs="{'invisible': [('is_company','=', True)]}" />
+          <field name="padre_ni" string="Padre del niño" attrs="{'invisible': [('is_company','=', True)]}" />
+          <field name="madre_ni" string="Madre del niño" attrs="{'invisible': [('is_company','=', True)]}" />
+          <field name="hermanos_ni" string="Cantidad de hermanos del Niño" attrs="{'invisible': [('is_company','=', True)]}" />
+          <field name="grado_ni" string="Grado del Niño" attrs="{'invisible': [('is_company','=', True)]}" />
+          <field name="estudia_ni" string="'Estudia ? " attrs="{'invisible': [('is_company','=', True)]}" />
+
+        </field></field>
+      
+      
+      </record>
+    </data>
+  </openerp>
